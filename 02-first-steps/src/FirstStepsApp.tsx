@@ -12,7 +12,7 @@ const itemsInCart: ItemInCart[] = [
 ]
 export function FirstStepsApp() {
     return (
-        <>
+        <div data-testid="FSA-div">
             <h1>Carrito de compras</h1>
 
             {
@@ -24,6 +24,6 @@ export function FirstStepsApp() {
             <ItemCounter name="Xbox Series X" quantity={3}/>
             <ItemCounter name="Hollow Knight: Silksong" quantity={8}/> */}
 
-        </>
+        </div>
     )
 };

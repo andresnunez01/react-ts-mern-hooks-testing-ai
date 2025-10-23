@@ -22,18 +22,23 @@ const myStyles: CSSProperties = {
 
 export const MyAwesomeApp = ( { firstName, lastName }: Props ) => {
 
-    return <>
-        <h1> Firstname: { firstName }</h1>
-        <h3> Lastname: { lastName }</h3>
+    // const firstName = 'Andres';
+    // const lastName = 'Nunez'
+    return <div data-testid="div-app">
+        <h1 data-testid="first-name-title">
+            { firstName }
+        </h1>
+        <h3>{ lastName }</h3>
 
-        <p>{ favoriteGames.join(', ') }</p>
+        <p></p>
+        <p className="mi-clase-favorita">{ favoriteGames.join(', ') }</p>
 
         <h1>{ isActive ? 'Activo' : 'No activo' }</h1>
 
         <p
         style={ myStyles }
         >{ JSON.stringify(address) }</p>
-    </>
+    </div>
 
 }
 
