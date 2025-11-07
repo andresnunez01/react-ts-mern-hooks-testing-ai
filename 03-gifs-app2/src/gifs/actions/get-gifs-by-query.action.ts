@@ -6,7 +6,12 @@ import { giphyApi } from '../api/giphy.api'
 export const getGifsByQuery = async ( query: string): Promise<Gif[]> => {
     // fetch(`https://api.giphy.com/v1/gifs/search?api_key=pTO8yRWWuFUR1bTI9E2u9Pk7CAIwMMid&q=${query}&limit=10&lang=es`)
 
-    const response = await giphyApi<GiphyResponse>('/search', {
+    if ( !query.trim() ){
+        return []
+    }
+    
+    try {
+        const response = await giphyApi<GiphyResponse>('/search', {
         params: {
             q: query,
             limit: 10,
@@ -21,5 +26,9 @@ export const getGifsByQuery = async ( query: string): Promise<Gif[]> => {
         height: Number(gif.images.original.height),
 
     }))
+    } catch (error) {
+        console.error(error);
+        return []
+    }
 
 }

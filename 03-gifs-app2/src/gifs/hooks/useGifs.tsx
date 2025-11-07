@@ -18,10 +18,12 @@ export const useGifs = () => {
         if( !gifsCache.current[term]){
             const gifs = await getGifsByQuery(term);
             setGifs(gifs);
+            gifsCache.current[term] = gifs;
             return;
         }
 
         setGifs(gifsCache.current[term])
+        
 
         
     }
@@ -39,8 +41,6 @@ export const useGifs = () => {
         setGifs(gifs);
 
         gifsCache.current[query] = gifs;
-
-        console.log(gifsCache)
     }
 
 
